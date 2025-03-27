@@ -1,24 +1,21 @@
 import React from 'react';
 import './index.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import fondo from './assets/fondo.png'
+import Navbar from './components/Navbar';
+import Hero from './pages/Hero';
+import About from './pages/About';
 
 const App = () => {
 
-  const bgImagen = {
-    backgroundImage: `url(${fondo})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'bottom',
-    backgroundSize: 'cover',
-    position: 'relative'
-  }
   return (
-    <div style={bgImagen} className='overFlow-hidden min-h-screen'>
-      <Navbar/>
-      <Hero/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Hero/>} />
+        <Route path="/about" element={<About/>} />
+
+      </Routes>
+    </Router>
   );
 }
 
